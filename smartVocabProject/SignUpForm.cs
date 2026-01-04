@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Windows.Forms;
 
 namespace smartVocabProject
 {
@@ -20,121 +12,74 @@ namespace smartVocabProject
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void SignUpForm_Load(object sender, EventArgs e)
         {
+            txtFirstName.Focus();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            // Read inputs
-            string firstName = txtFirstName.Text.Trim();
-            string lastName = txtLastName.Text.Trim();
+            string fName = txtFirstName.Text.Trim();
+            string lName = txtLastName.Text.Trim();
             string email = txtEmail.Text.Trim();
-            string password = txtPassword.Text.Trim();
-            string confirmPassword = txtConfirmPassword.Text.Trim();
+            string pass = txtPassword.Text;
+            string cPass = txtConfirmPassword.Text;
 
-            // 1️⃣ Empty field check
-            if (firstName == "" || lastName == ""  ||
-                email == "" || password == "" || confirmPassword == "")
+            // Validation
+            if (string.IsNullOrEmpty(fName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(pass))
             {
-                MessageBox.Show("Please fill in all fields.",
-                                "Missing Information",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill in all fields.", "SmartVocab", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2️⃣ Email validation
             if (!email.Contains("@") || !email.Contains("."))
             {
-                MessageBox.Show("Please enter a valid email address.",
-                                "Invalid Email",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                MessageBox.Show("Invalid Email format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // 3️⃣ Password length
-            if (password.Length < 6)
+            if (pass != cPass)
             {
-                MessageBox.Show("Password must be at least 6 characters long.",
-                                "Weak Password",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                MessageBox.Show("Passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // 4️⃣ Password match
-            if (password != confirmPassword)
-            {
-                MessageBox.Show("Passwords do not match.",
-                                "Password Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                return;
-            }
-
-            // 5️⃣ Insert into Database
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
                 {
                     con.Open();
 
-                    string query = @"INSERT INTO Users
-                                     (FirstName, LastName, Email, Password)
-                                     VALUES
-                                     (@FirstName, @LastName, @Email, @Password)";
+                    // Optional: check if email already exists
+                    SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Users WHERE Email=@EM", con);
+                    checkCmd.Parameters.AddWithValue("@EM", email);
+                    int count = (int)checkCmd.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Email already registered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
+                    string query = "INSERT INTO Users (FirstName, LastName, Email, Password) VALUES (@FN, @LN, @EM, @PW)";
                     SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@FirstName", firstName);
-                    cmd.Parameters.AddWithValue("@LastName", lastName);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.AddWithValue("@FN", fName);
+                    cmd.Parameters.AddWithValue("@LN", lName);
+                    cmd.Parameters.AddWithValue("@EM", email);
+                    cmd.Parameters.AddWithValue("@PW", pass); // plain text password
 
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Account Created Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    MessageBox.Show("Registration successful!",
-                                    "Success",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-
-                    ClearFields();
+                    // Go to Login
+                    LoginForm login = new LoginForm();
+                    login.Show();
+                    this.Hide();
                 }
-                catch (SqlException ex)
+                catch (Exception ex)
                 {
-                    // UNIQUE constraint violation
-                    if (ex.Number == 2627)
-                    {
-                        MessageBox.Show("Username or Email already exists.",
-                                        "Duplicate Entry",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        MessageBox.Show(ex.Message,
-                                        "Database Error",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
-
-        }
-        private void ClearFields()
-        {
-            txtFirstName.Clear();
-            txtLastName.Clear();
-            txtEmail.Clear();
-            txtPassword.Clear();
-            txtConfirmPassword.Clear();
         }
 
         private void lnklblLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -144,59 +89,9 @@ namespace smartVocabProject
             this.Hide();
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void lblClose_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtConfirmPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblConfirmPass_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblPassword_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEmail_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLastName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblLastName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFirstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFirstName_Click(object sender, EventArgs e)
-        {
-
+            Application.Exit();
         }
     }
 }

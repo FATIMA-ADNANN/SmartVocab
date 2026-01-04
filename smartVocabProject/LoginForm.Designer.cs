@@ -37,16 +37,18 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.createAccountlbl = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblClose = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lnklblLogin
             // 
             this.lnklblLogin.AutoSize = true;
-            this.lnklblLogin.Font = new System.Drawing.Font("Nirmala UI", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnklblLogin.Font = new System.Drawing.Font("Nirmala UI", 9.8F, System.Drawing.FontStyle.Bold);
             this.lnklblLogin.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(111)))), ((int)(((byte)(105)))));
-            this.lnklblLogin.Location = new System.Drawing.Point(377, 451);
+            this.lnklblLogin.Location = new System.Drawing.Point(338, 470);
+            this.lnklblLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lnklblLogin.Name = "lnklblLogin";
-            this.lnklblLogin.Size = new System.Drawing.Size(55, 17);
+            this.lnklblLogin.Size = new System.Drawing.Size(72, 23);
             this.lnklblLogin.TabIndex = 76;
             this.lnklblLogin.TabStop = true;
             this.lnklblLogin.Text = "Sign up";
@@ -57,7 +59,8 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 9.2F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(111)))), ((int)(((byte)(105)))));
-            this.label1.Location = new System.Drawing.Point(192, 449);
+            this.label1.Location = new System.Drawing.Point(146, 470);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 21);
             this.label1.TabIndex = 75;
@@ -71,7 +74,8 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(112, 389);
+            this.btnLogin.Location = new System.Drawing.Point(93, 412);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(413, 39);
             this.btnLogin.TabIndex = 74;
@@ -85,7 +89,8 @@
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(111)))), ((int)(((byte)(105)))));
-            this.txtPassword.Location = new System.Drawing.Point(112, 325);
+            this.txtPassword.Location = new System.Drawing.Point(93, 348);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(413, 26);
@@ -96,7 +101,8 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(111)))), ((int)(((byte)(105)))));
-            this.lblPassword.Location = new System.Drawing.Point(108, 299);
+            this.lblPassword.Location = new System.Drawing.Point(93, 311);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(84, 23);
             this.lblPassword.TabIndex = 70;
@@ -108,7 +114,8 @@
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(111)))), ((int)(((byte)(105)))));
-            this.txtEmail.Location = new System.Drawing.Point(112, 260);
+            this.txtEmail.Location = new System.Drawing.Point(93, 272);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(413, 26);
@@ -119,7 +126,8 @@
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(111)))), ((int)(((byte)(105)))));
-            this.lblEmail.Location = new System.Drawing.Point(108, 234);
+            this.lblEmail.Location = new System.Drawing.Point(93, 232);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(54, 23);
             this.lblEmail.TabIndex = 68;
@@ -131,7 +139,8 @@
             this.createAccountlbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
             this.createAccountlbl.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createAccountlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.createAccountlbl.Location = new System.Drawing.Point(260, 173);
+            this.createAccountlbl.Location = new System.Drawing.Point(232, 189);
+            this.createAccountlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.createAccountlbl.Name = "createAccountlbl";
             this.createAccountlbl.Size = new System.Drawing.Size(90, 38);
             this.createAccountlbl.TabIndex = 63;
@@ -143,18 +152,34 @@
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(111)))), ((int)(((byte)(105)))));
-            this.lblTitle.Location = new System.Drawing.Point(198, 123);
+            this.lblTitle.Location = new System.Drawing.Point(176, 130);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(234, 50);
             this.lblTitle.TabIndex = 62;
             this.lblTitle.Text = "SmartVocab";
             // 
+            // lblClose
+            // 
+            this.lblClose.AutoSize = true;
+            this.lblClose.BackColor = System.Drawing.Color.Transparent;
+            this.lblClose.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(111)))), ((int)(((byte)(105)))));
+            this.lblClose.Location = new System.Drawing.Point(559, 9);
+            this.lblClose.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblClose.Name = "lblClose";
+            this.lblClose.Size = new System.Drawing.Size(30, 32);
+            this.lblClose.TabIndex = 93;
+            this.lblClose.Text = "X";
+            this.lblClose.Click += new System.EventHandler(this.lblClose_Click);
+            // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 45F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(173)))));
-            this.ClientSize = new System.Drawing.Size(632, 603);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(150)))));
+            this.ClientSize = new System.Drawing.Size(600, 600);
+            this.Controls.Add(this.lblClose);
             this.Controls.Add(this.lnklblLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogin);
@@ -164,9 +189,9 @@
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.createAccountlbl);
             this.Controls.Add(this.lblTitle);
-            this.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(8);
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
@@ -187,5 +212,6 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label createAccountlbl;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblClose;
     }
 }
